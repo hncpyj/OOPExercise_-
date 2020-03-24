@@ -173,7 +173,4 @@ public class MemberManager {
 		System.out.println(m.getEmail());
 
 	}
-	
-	
-	
 }
