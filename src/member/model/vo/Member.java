@@ -10,6 +10,15 @@ public class Member {
 	
 	public Member() {}
 	
+	public Member(String userId, String userPwd, String userName, int age, char gender, String email) {
+		this.userId = userId;
+		this.userPwd = userPwd;
+		this.userName = userName;
+		this.age = age;
+		this.gender = gender;
+		this.email = email;
+	}
+	
 	public void setUserId(String userId) {
 		this.userId = userId;
 	}

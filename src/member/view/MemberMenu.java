@@ -26,12 +26,12 @@ public class MemberMenu {
 			System.out.println("5. 회원 정보 출력");
 			System.out.println("9. 종료");
 			System.out.println("=================================");
-			System.out.println("메뉴 번호를 입력하세요 : ");
+			System.out.print("메뉴 번호를 입력하세요 : ");
 			menu = sc.nextInt();
 			
 			switch(menu) {
 			case 1: mm.insertMember(); break;
-			case 2: searchMemberMenu(); break;
+			case 2: searchMemberMenu(); mainMenu(); break;
 			case 3: updateMemberMenu(); break;
 			case 4: deleteMemberMenu(); break;
 			case 5: mm.printAllMember(); break;
@@ -52,13 +52,13 @@ public class MemberMenu {
 			System.out.println("3. 이메일로 검색하기");
 			System.out.println("9. 메인 메뉴로");
 			System.out.println("=================================");
-			System.out.println("메뉴 번호를 입력하세요 : ");
+			System.out.print("메뉴 번호를 입력하세요 : ");
 			menu = sc.nextInt();
 			
 			switch(menu) {
-			case 1: mm.searchId(); break;
-			case 2: mm.searchName(); break;
-			case 3: mm.searchEmail(); break;
+			case 1: mm.searchId(); mainMenu(); break;
+			case 2: mm.searchName(); mainMenu(); break;
+			case 3: mm.searchEmail(); mainMenu(); break;
 			case 9: System.out.println("메인메뉴로 이동합니다."); mainMenu(); return;
 			default: System.out.println("번호를 잘못 누르셨습니다. 다시 입력하세요."); break;
 			}
@@ -78,13 +78,13 @@ public class MemberMenu {
 			System.out.println("3. 이메일 수정하기");
 			System.out.println("9. 메인 메뉴로");
 			System.out.println("=================================");
-			System.out.println("메뉴 번호를 입력하세요 : ");
+			System.out.print("메뉴 번호를 입력하세요 : ");
 			menu = sc.nextInt();
 			
 			switch(menu) {
-			case 1: mm.updatePwd(); break;
-			case 2: mm.updateName(); break;
-			case 3: mm.updateEmail(); break;
+			case 1: mm.updatePwd(); mainMenu(); break;
+			case 2: mm.updateName(); mainMenu(); break;
+			case 3: mm.updateEmail(); mainMenu(); break;
 			case 9: System.out.println("메인메뉴로 이동합니다."); mainMenu(); return;
 			default: System.out.println("번호를 잘못 누르셨습니다. 다시 입력하세요."); break;
 			}
@@ -103,7 +103,7 @@ public class MemberMenu {
 			System.out.println("2. 전체 회원 삭제");
 			System.out.println("9. 메인 메뉴로");
 			System.out.println("=================================");
-			System.out.println("메뉴 번호를 입력하세요 : ");
+			System.out.print("메뉴 번호를 입력하세요 : ");
 			menu = sc.nextInt();
 			
 			switch(menu) {
