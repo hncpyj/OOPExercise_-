@@ -6,31 +6,32 @@ import member.model.vo.Member;
 //import member.view.MemberMenu;
 
 public class MemberManager {
-	private static Member[] m = new Member[2];
+	private static Member[] m = new Member[10];
 	private static int ctn = 0;
 	private Scanner sc = new Scanner(System.in);
+	boolean b = false;
 	
 	public MemberManager() {}
 	
 	public void insertMember() {
-		for(int i = 0; i < m.length; i++) {
-			System.out.print("ID : ");
-			String id = sc.nextLine();
-			System.out.print("Password : ");
-			String pwd = sc.nextLine();
-			System.out.print("name : ");
-			String name = sc.nextLine();
-			System.out.print("age : ");
-			int age = sc.nextInt();
-			sc.nextLine();
-			System.out.print("gender : ");
-			char gender = sc.nextLine().charAt(0);
-			System.out.print("email : ");
-			String email = sc.nextLine();
-			
+		System.out.print("ID : ");
+		String id = sc.nextLine();
+		System.out.print("Password : ");
+		String pwd = sc.nextLine();
+		System.out.print("name : ");
+		String name = sc.nextLine();
+		System.out.print("age : ");
+		int age = sc.nextInt();
+		sc.nextLine();
+		System.out.print("gender : ");
+		char gender = sc.nextLine().charAt(0);
+		System.out.print("email : ");
+		String email = sc.nextLine();
+		
+		for(int i = ctn ; i < m.length; i++) {
 			m[i] = new Member(id, pwd, name, age, gender, email);
 			ctn++;
-			
+			break;
 		}
 		System.out.println("입력이 완료되었습니다. 메인 메뉴로 돌아갑니다.");
 	}
@@ -53,14 +54,16 @@ public class MemberManager {
 	public void searchName() {
 		System.out.print("검색할 이름을 입력하세요 : ");
 		String name = sc.nextLine();
+		
 		for(int i = 0; i < ctn; i++) {
 			if(m[i].getUserName().equalsIgnoreCase(name)) {
 				printOne(m[i]);
-				break;
-			} else {
-				System.out.println("검색할 회원 정보가 존재하지 않습니다.");
+				b = true;
 				break;
 			}
+		}
+		if(b == false) {
+			System.out.println("검색할 회원 정보가 존재하지 않습니다.");
 		}
 	}
 	
@@ -71,10 +74,10 @@ public class MemberManager {
 			if(m[i].getEmail().equalsIgnoreCase(email)) {
 				printOne(m[i]);
 				break;
-			} else {
-				System.out.println("삭제할 회원 정보가 존재하지 않습니다.");
-				break;
 			}
+		}
+		if(b == false) {
+		System.out.println("검색할 회원 정보가 존재하지 않습니다.");
 		}
 	}
 	
@@ -87,10 +90,10 @@ public class MemberManager {
 				m[i].setUserPwd(sc.nextLine());
 				System.out.println("패스워드 수정이 완료되었습니다.");
 				break;
-			} else {
-				System.out.println("검색할 회원 정보가 존재하지 않습니다.");
-				break;
 			}
+		}
+		if(b == false) {
+			System.out.println("수정할 회원 정보가 존재하지 않습니다.");
 		}
 	}
 	
@@ -103,10 +106,10 @@ public class MemberManager {
 				m[i].setUserName(sc.nextLine());
 				System.out.println("이름 수정이 완료되었습니다.");
 				break;
-			} else {
-				System.out.println("검색할 회원 정보가 존재하지 않습니다.");
-				break;
 			}
+		}
+		if(b == false) {
+			System.out.println("수정할 회원 정보가 존재하지 않습니다.");
 		}
 	}
 	
@@ -119,10 +122,10 @@ public class MemberManager {
 				m[i].setEmail(sc.nextLine());
 				System.out.println("이메일 수정이 완료되었습니다.");
 				break;
-			} else {
-				System.out.println("검색할 회원 정보가 존재하지 않습니다.");
-				break;
 			}
+		}
+		if(b == false) {
+			System.out.println("수정할 회원 정보가 존재하지 않습니다.");
 		}
 	}
 	
@@ -133,10 +136,10 @@ public class MemberManager {
 			if(m[i].getUserId().equalsIgnoreCase(id)) {
 				m[i+1] = m[i];
 				break;
-			} else {
-				System.out.println("삭제할 회원 정보가 존재하지 않습니다.");
-				break;
 			}
+		}
+		if(b == false) {
+			System.out.println("삭제할 회원 정보가 존재하지 않습니다.");
 		}
 	}
 	
